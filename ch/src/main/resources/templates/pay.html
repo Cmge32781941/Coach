@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .payment-form { max-width: 300px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; }
+        .payment-form input[type="text"], .payment-form input[type="submit"] { width: 100%; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+<div class="payment-form">
+    <form action="http://localhost:8443/alipay/pay" method="get">
+        <input type="text" name="orderAmount" placeholder="金额" required style = "width: 276px">
+        <input type="text" name="goodId" placeholder="商品ID" required style = "width: 276px">
+        <input type="submit" value="支付">
+    </form>
+</div>
+</body>
+</html>

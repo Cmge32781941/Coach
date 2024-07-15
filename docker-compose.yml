@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  mysql:
+    container_name: mysql_coach
+    image: mysql:8.0.30
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    command:
+      #该选项中的命令会覆盖Dockfile中的CMD中的命令.lower_case_table_names参数是为了表名不区分大小写，default-authentication-plugin是8.0中密码加密策略不同带来的链接问题，如果不用8.0可不加此选项
+      mysqld --lower_case_table_names=1 --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin123"
+    volumes:
+      - ./mysql/var/lib/mysql:/var/lib/mysql
+      - ./mysql/config:/etc/mysql/conf.d
+    privileged: true
